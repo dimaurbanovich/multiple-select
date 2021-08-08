@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 640px;
+  margin: auto;
+  background-color: burlywood;
+}
+
+select {
+  display: block;
+  width: 590px;
+  margin: auto;
+  height: 500px;
+}
+
+option {
+  margin: 10px;
+}
+
+div {
+  background-color: aqua;
+  height: 100px;
+}
+input {
+  height: 46px;
+  width: 600px;
+  font-size: 16px;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+.option {
+  content: '';
+}
