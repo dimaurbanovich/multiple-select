@@ -12,14 +12,14 @@ body {
   width: 640px;
   margin: auto;
   background-color: #fff;
-  padding: 23px;
 }
 
-#selectId {
-  width: 590px;
+.select-first {
+  width: 640px;
   margin: auto;
   overflow-y: auto;
   height: 200px;
+  display: block;
 }
 
 /* div {
@@ -89,4 +89,27 @@ h2 {
 #customerMenu {
   margin-bottom: 19px;
   border-bottom: 1px solid #d9d9d9;
+}
+
+.first-component {
+  padding: 23px;
+}
+
+.second-component {
+  padding: 23px;
+}
+
+.second-component h2::before {
+  content: '';
+  background-image: url(./images/arrow.svg);
+  width: 20px;
+  height: 22.98px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
