@@ -14,18 +14,14 @@ body {
   background-color: #fff;
 }
 
-.select-first {
-  width: 640px;
+.select {
+  width: 100%;
   margin: auto;
   overflow-y: auto;
-  height: 200px;
+  height: 100%;
   display: block;
+  outline: none;
 }
-
-/* div {
-  background-color: aqua;
-  height: 100px;
-} */
 
 .visually-hidden {
   display: none;
@@ -35,6 +31,7 @@ option {
   font-size: 14px;
   line-height: 18px;
   padding: 6px;
+  cursor: pointer;
 }
 
 option::before {
@@ -50,10 +47,10 @@ option::before {
 option[selected]::before {
   background-image: url(./images/Group.svg);
 }
-/* 
+
 option.hidden {
   display: none;
-} */
+}
 
 .wrapper {
   display: flex;
@@ -65,7 +62,7 @@ h2 {
   display: inline-block;
 }
 
-.selectionMenu {
+input {
   background-color: #fff;
   width: 100%;
   height: 37.7px;
@@ -96,10 +93,26 @@ h2 {
 }
 
 .second-component {
-  padding: 23px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.second-component h2::before {
+.header-wrapper {
+  height: 123px;
+  padding: 17px 20px 17px 20px;
+  background-color: #fafafa;
+}
+
+.header-wrapper h2 {
+  font-size: 18px;
+  margin-bottom: 17px;
+  display: block;
+  cursor: default;
+}
+
+.header-wrapper h2::before {
   content: '';
   background-image: url(./images/arrow.svg);
   width: 20px;
@@ -107,9 +120,33 @@ h2 {
   text-align: center;
   display: inline-block;
   margin-right: 10px;
-  cursor: pointer;
 }
 
 .hidden {
   display: none;
+}
+
+.footer-wrapper {
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  padding: 10px 20px 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #fafafa;
+}
+
+.applyBtn {
+  height: 40px;
+  width: 121px;
+  background-color: #035b77;
+  border-radius: 4px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.clearBtn {
+  line-height: 40px;
+  cursor: pointer;
 }
