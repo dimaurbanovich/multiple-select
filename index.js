@@ -20,7 +20,7 @@ document.body.insertAdjacentHTML(
       </div>
       <div class='second-component hidden' id='second-component'>
         <div class='header-wrapper' id='headerWrapper'>
-          <h2 >Реализуемые товары</h2>
+          <h2 id='arrowBack'>Реализуемые товары</h2>
           <input id='search'>
         </div>
         <div class='footer-wrapper'>
@@ -40,6 +40,7 @@ const providerCounter = document.getElementById('provider-counter');
 const applyBtn = document.querySelector('.applyBtn');
 const clearBtn = document.querySelector('.clearBtn');
 const search = document.querySelector('#search');
+const arrowBack = document.querySelector('#arrowBack');
 
 headerWrapper.after(select);
 
@@ -117,7 +118,9 @@ providerCounter.addEventListener('click', function () {
   goToSecondComponent();
 });
 
-clearBtn.addEventListener('click', function () {});
+arrowBack.addEventListener('click', function () {
+  backToFirstComponent();
+});
 
 applyBtn.addEventListener('click', function () {
   selectedNewItems = Array.from(options).filter(

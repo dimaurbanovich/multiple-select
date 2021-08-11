@@ -21,6 +21,7 @@ body {
   height: 100%;
   display: block;
   outline: none;
+  white-space: wrap;
 }
 
 .visually-hidden {
@@ -120,6 +121,7 @@ input {
   text-align: center;
   display: inline-block;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .hidden {
