@@ -21,26 +21,27 @@ document.body.insertAdjacentHTML(
       <div class='second-component hidden' id='second-component'>
         <div class='header-wrapper' id='headerWrapper'>
           <h2 id='arrowBack'>Реализуемые товары</h2>
-          <input id='search'>
+          <input type=''seaarch id='search'>
         </div>
         <div class='footer-wrapper'>
-          <button class='applyBtn'>Применить</button>
-          <span class='clearBtn'>Очистить</span>
+          <button class='applyBtn' id='applyBtn'>Применить</button>
+          <span class='clearBtn' id='clearBtn'>Очистить</span>
         </div>
       </div>
   </div>`,
 );
 
 const customerMenu = document.getElementById('customerMenu');
+const providerMenu = document.getElementById('providerMenu');
 const headerWrapper = document.getElementById('headerWrapper');
 const firstComponent = document.getElementById('first-component');
 const secondComponent = document.getElementById('second-component');
 const customerCounter = document.getElementById('customer-counter');
 const providerCounter = document.getElementById('provider-counter');
-const applyBtn = document.querySelector('.applyBtn');
-const clearBtn = document.querySelector('.clearBtn');
-const search = document.querySelector('#search');
-const arrowBack = document.querySelector('#arrowBack');
+const applyBtn = document.getElementById('applyBtn');
+const clearBtn = document.getElementById('clearBtn');
+const search = document.getElementById('search');
+const arrowBack = document.getElementById('arrowBack');
 
 headerWrapper.after(select);
 
@@ -59,32 +60,9 @@ select.addEventListener('click', function (e) {
 
 const getSelectedValue = (items) => {
   let selectedValue = Array.from(items).map((option) => option.innerHTML);
-  if (selectedValue[0] !== undefined) {
-    customerMenu.value = `${selectedValue[0]}`;
-  } else {
-    customerMenu.value = ``;
-  }
+  customerMenu.value = selectedValue.length ? selectedValue[0] : '';
+  providerMenu.value = selectedValue.length ? selectedValue[0] : '';
 };
-// Array.from(options).forEach((option) => {
-//   if (option.getAttribute('data-level') === null) {
-//     option.classList.add('collapsed');
-//   } else {
-//     option.classList.add('hidden');
-//   }
-// });
-
-// select.addEventListener('click', function (e) {
-//   e.target.toggleAttribute('selected');
-//   checkSelectedItems();
-//   // console.log(e.target);
-//   // let dataLevel = e.target.getAttribute('data-level');
-//   // Array.from(options).forEach((option) => {
-//   //   let optAttribute = option.getAttribute();
-//   //   if (dataLevel >= optAttribute || dataLevel === null) {
-//   //     console.log('ddgrgr');
-//   //   }
-//   // });
-// });
 
 const backToFirstComponent = () => {
   firstComponent.classList.remove('hidden');
@@ -122,6 +100,13 @@ arrowBack.addEventListener('click', function () {
   backToFirstComponent();
 });
 
+clearBtn.addEventListener('click', function () {
+  for (let i = 0; i < options.length; i++) {
+    options[i].removeAttribute('selected');
+    options[i].selected = false;
+  }
+});
+
 applyBtn.addEventListener('click', function () {
   selectedNewItems = Array.from(options).filter(
     (option) => option.getAttribute('selected') !== null,
@@ -138,10 +123,13 @@ applyBtn.addEventListener('click', function () {
   backToFirstComponent();
 });
 
-search.addEventListener('change', function () {
-  let text = search.innerHTML;
-  Array.from(options).forEach((option) => {
-    if (option.textContent == text) {
+search.addEventListener('input', function () {
+  let searchText = search.value;
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].innerText.search(searchText) == -1) {
+      options[i].classList.add('hidden');
+    } else {
+      options[i].classList.remove('hidden');
     }
-  });
+  }
 });
